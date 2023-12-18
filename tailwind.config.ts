@@ -5,7 +5,7 @@ const config: Config = {
 	theme: {
 		screens: {
 			sm: "480px",
-			md: "720px",
+			md: "721px",
 			lg: "976px",
 			xl: "1440px",
 		},
