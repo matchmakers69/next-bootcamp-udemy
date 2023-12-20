@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Rubik } from "next/font/google";
-import { siteConfig } from "./page";
-import { cn } from "@/lib/utils";
+import { siteConfig } from "./(application)/page";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -44,16 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className={`${poppins.variable} ${rubik.variable}`}>
-				<main
-					className={cn(
-						"bg-transparent bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] max-sm:pt-20",
-						{ "bg-white": "#E6E7EB" },
-					)}
-				>
-					{/* NAVBAR ->  */}
+				{/* NAVBAR ->  */}
 
-					{children}
-				</main>
+				{children}
 			</body>
 		</html>
 	);
