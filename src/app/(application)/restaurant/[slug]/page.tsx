@@ -4,7 +4,7 @@ import Link from "next/link";
 const RestaurantDetails = () => {
 	return (
 		<main className="min-h-screen w-screen bg-gray-100">
-			<main className="max-w-screen-2xl m-auto bg-white">
+			<main className="m-auto max-w-screen-2xl bg-white">
 				{/* NAVBAR */}
 				<nav className="flex justify-between bg-white p-2">
 					<Link href="/" className="text-2xl font-bold text-gray-700">
@@ -31,13 +31,11 @@ const RestaurantDetails = () => {
 					<div className="w-[70%] rounded bg-white p-3 shadow">
 						{/* RESAURANT NAVBAR */}
 						<nav className="text-reg flex border-b pb-2">
-							<Link href="/" className="mr-7">
-								{" "}
-								Overview{" "}
+							<Link href="/restaurant/milestone-grill" className="mr-7">
+								Overview
 							</Link>
-							<Link href="/" className="mr-7">
-								{" "}
-								Menu{" "}
+							<Link href="/restaurant/milestone-grill/menu" className="mr-7">
+								Menu
 							</Link>
 						</nav>
 						{/* RESAURANT NAVBAR */} {/* TITLE */}
