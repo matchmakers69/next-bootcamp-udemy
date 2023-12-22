@@ -2,14 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { type SubmitHandler, useForm, useController } from "react-hook-form";
-import type * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Input } from "../atoms/Input";
-import { searchValidation } from "@/libs/validation/searchValidation";
+import { Input } from "../../atoms/Input";
+import { type TSearchValues } from "./types";
+import { searchValidation } from "./validation";
 
-export type TSearchValues = Yup.InferType<typeof searchValidation>;
+interface SearchBarProps {
+	submit: SubmitHandler<TSearchValues>;
+}
 
-const SearchBar = () => {
+const SearchBar = ({ submit }: SearchBarProps) => {
 	const router = useRouter();
 	const { control, handleSubmit } = useForm<TSearchValues>({
 		resolver: yupResolver(searchValidation),
@@ -24,13 +26,9 @@ const SearchBar = () => {
 		control,
 	});
 
-	const handleSearchFormSubmit: SubmitHandler<TSearchValues> = (data) => {
-		console.log(data);
-	};
-
 	return (
 		<div className="m-auto flex justify-center py-3 text-left text-lg">
-			<form className="flex items-center" noValidate onSubmit={handleSubmit(handleSearchFormSubmit)}>
+			<form className="flex items-center" noValidate onSubmit={handleSubmit(submit)}>
 				<Input
 					value={locationField.value ?? ""}
 					onChange={locationField.onChange}
@@ -46,4 +44,4 @@ const SearchBar = () => {
 	);
 };
 
-export default SearchBar;
+export { SearchBar };

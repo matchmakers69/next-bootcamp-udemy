@@ -1,29 +1,16 @@
 import Image from "next/image";
-import Link from "next/link";
+import SearchHeader from "./components/SearchHeader";
+import { NavBar } from "@/ui/components/Navbar";
 
 const Search = () => {
 	return (
 		<main className="min-h-screen w-screen bg-gray-100">
-			<main className="max-w-screen-2xl m-auto bg-white">
+			<main className="m-auto max-w-screen-2xl bg-white">
 				{/* NAVBAR */}
-				<nav className="flex justify-between bg-white p-2">
-					<Link href="/" className="text-2xl font-bold text-gray-700">
-						{" "}
-						OpenTable{" "}
-					</Link>
-					<div>
-						<div className="flex">
-							<button className="mr-3 rounded border bg-blue-400 p-1 px-4 text-white">Sign in</button>
-							<button className="rounded border p-1 px-4">Sign up</button>
-						</div>
-					</div>
-				</nav>
+				<NavBar />
 				{/* HEADER */}
 				<div className="bg-gradient-to-r from-[#0f1f47] to-[#5f6984] p-2">
-					<div className="m-auto flex justify-center py-3 text-left text-lg">
-						<input className="mr-3  w-[450px] rounded p-2" type="text" placeholder="State, city or town" />
-						<button className="rounded bg-red-600 px-9 py-2 text-white">Let's go</button>
-					</div>
+					<SearchHeader />
 				</div>
 				<div className="m-auto flex w-2/3 items-start justify-between py-4">
 					{/* SEARCH SIDE BAR */}
