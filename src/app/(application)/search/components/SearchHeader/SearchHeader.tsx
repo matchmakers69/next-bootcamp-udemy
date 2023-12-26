@@ -18,4 +18,4 @@ const SearchHeader = () => {
 	);
 };
 
-export default SearchHeader;
+export { SearchHeader };
