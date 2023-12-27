@@ -5,7 +5,7 @@ const nextConfig = {
 		serverActions: true,
 	},
 	images: {
-		domains: ["resizer.otstatic.com", "source.unsplash.com", "https://images.otstatic.com"],
+		domains: ["resizer.otstatic.com", "source.unsplash.com", "images.otstatic.com"],
 	},
 };
 
