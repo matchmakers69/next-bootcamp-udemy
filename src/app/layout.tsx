@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins, Rubik } from "next/font/google";
-import { siteConfig } from "./(application)/page";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,11 +14,6 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s - Software Engineer`,
-	},
-	description: siteConfig.description,
 	keywords: [
 		"portfolio",
 		"web developer",

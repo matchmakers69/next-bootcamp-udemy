@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
 import { Header } from "@/ui/components/Header";
 import { RestaurantCard } from "@/ui/components/RestaurantCard";
 
-export const siteConfig = {
-	name: "Przemek Lewtak",
+export const metadata: Metadata = {
+	title: {
+		default: "Udemy Next v13 course",
+		template: `%s - Software Engineer`,
+	},
 	description: "I am a Passionate Software Developer",
 };
 
