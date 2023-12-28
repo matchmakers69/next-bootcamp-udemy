@@ -1,7 +1,9 @@
-import { Loader } from "lucide-react";
-
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 export default function Loading() {
 	return (
-		<Loader className="absolute bottom-0 left-0 right-0 top-0 m-auto h-11 w-11 animate-spin text-[#2f7df4]" />
+		<Box sx={{ display: "flex" }}>
+			<CircularProgress />
+		</Box>
 	);
 }
