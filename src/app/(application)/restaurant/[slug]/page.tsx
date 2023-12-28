@@ -6,6 +6,7 @@ import { RestaurantDescription } from "./components/RestaurantDescription";
 import { RestaurantImagesList } from "./components/RestaurantImagesList";
 import { RestaurantReviews } from "./components/RestaurantReviews/RestaurantReviews";
 import { RestaurantReservationCard } from "./components/RestaurantReservationCard";
+import getRestaurantDetails from "@/app/actions/getRestaurantDetails";
 
 export const metadata: Metadata = {
 	title: {
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
 	description: "This is search",
 };
 
-const RestaurantDetails = () => {
+const RestaurantDetails = async (props: { params: { slug: string } }) => {
+	const singleRestaurantBySlug = await getRestaurantDetails(props.params.slug);
+	if (!singleRestaurantBySlug) return;
+	console.log(singleRestaurantBySlug);
 	return (
 		<>
 			<div className="w-[70%] rounded bg-white p-3 shadow">

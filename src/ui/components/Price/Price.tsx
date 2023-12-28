@@ -1,12 +1,12 @@
+import { useMemo, type ReactNode } from "react";
 import { PRICE } from "@prisma/client";
-import { type ReactNode } from "react";
 
 interface PriceProps {
 	price: PRICE;
 }
 
 function Price({ price }: PriceProps) {
-	const renderPrice = () => {
+	const renderPrice = useMemo(() => {
 		const priceMap: Record<PRICE, ReactNode> = {
 			[PRICE.CHEAP]: (
 				<>
@@ -24,9 +24,9 @@ function Price({ price }: PriceProps) {
 		};
 
 		return priceMap[price] ?? null;
-	};
+	}, [price]);
 
-	return <p className="mr-3 flex">{renderPrice()}</p>;
+	return <p className="mr-3 flex">{renderPrice}</p>;
 }
 
 export { Price };
