@@ -35,3 +35,10 @@ export interface RestaurantDetailsSubset {
 	description: string;
 	slug: string;
 }
+
+export interface MenuItem {
+	id: number;
+	name: string;
+	price: string;
+	description: string;
+}

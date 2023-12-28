@@ -17,17 +17,17 @@ export const metadata: Metadata = {
 };
 
 const RestaurantDetails = async (props: { params: { slug: string } }) => {
-	const singleRestaurantBySlug = await getRestaurantDetails(props.params.slug);
-	if (!singleRestaurantBySlug) return;
-	console.log(singleRestaurantBySlug);
+	const singleRestaurant = await getRestaurantDetails(props.params.slug);
+	if (!singleRestaurant) return;
+
 	return (
 		<>
 			<div className="w-[70%] rounded bg-white p-3 shadow">
-				<RestaurantNavbar />
-				<RestaurantTitle />
+				<RestaurantNavbar slug={singleRestaurant.slug} />
+				<RestaurantTitle name={singleRestaurant.name} />
 				<RestaurantRating />
-				<RestaurantDescription />
-				<RestaurantImagesList />
+				<RestaurantDescription description={singleRestaurant.description} />
+				<RestaurantImagesList images={singleRestaurant.images} />
 				<RestaurantReviews />
 			</div>
 			<div className="text-reg relative w-[27%]">
