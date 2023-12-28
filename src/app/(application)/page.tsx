@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import getRestaurants from "../actions/getRestaurants";
 import { Header } from "@/ui/components/Header";
 import { RestaurantCard } from "@/ui/components/RestaurantCard";
 
@@ -10,12 +11,17 @@ export const metadata: Metadata = {
 	description: "I am a Passionate Software Developer",
 };
 
-export default function Home() {
+export default async function Home() {
+	const restaurants = await getRestaurants();
+	if (!restaurants) return;
+
 	return (
 		<>
 			<Header />
 			<div className="mt-10 flex flex-wrap justify-center px-36 py-3">
-				<RestaurantCard />
+				{restaurants.map((restaurant) => (
+					<RestaurantCard key={restaurant.id} restaurant={restaurant} />
+				))}
 			</div>
 		</>
 	);

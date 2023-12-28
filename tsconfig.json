@@ -42,9 +42,11 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@ui/*": ["./src/ui/components/*", "./src/ui/atoms/*"]
+			"@ui/*": ["./src/ui/components/*", "./src/ui/atoms/*"],
+			"@api/*": ["./src/api/services/*"]
 		}
 	},
+	"types": ["node", "jest", "@testing-library/jest-dom"],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]
 }

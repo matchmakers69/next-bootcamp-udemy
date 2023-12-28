@@ -11,7 +11,9 @@
 		"plugin:import/recommended",
 		"plugin:import/typescript",
 		"prettier",
-		"next/core-web-vitals"
+		"next/core-web-vitals",
+		"plugin:testing-library/react",
+		"plugin:jest-dom/recommended"
 	],
 	"rules": {
 		// sort imports
@@ -24,6 +26,7 @@
 		"import/no-default-export": "off",
 
 		"import/no-unresolved": "off",
+		"testing-library/prefer-screen-queries": "off",
 
 		"no-irregular-whitespace": ["error", { "skipJSXText": true }],
 
