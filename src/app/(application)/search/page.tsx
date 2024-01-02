@@ -1,11 +1,11 @@
 import { type Metadata } from "next";
-import { type PRICE } from "@prisma/client";
 import { SearchHeader } from "./components/SearchHeader";
 import { SearchSidebar } from "./components/SearchSidebar";
 import { RestaurantCard } from "./components/RestaurantCard";
-import getSearchResults from "@/app/actions/getSearchResults";
+import getRestaurantsByCity from "@/app/actions/getRestaurantsByCity";
 import getLocations from "@/app/actions/getLocations";
 import getCuisines from "@/app/actions/getCuisines";
+import { type SearchParams } from "@/api/services/interfaces";
 
 export const metadata: Metadata = {
 	title: {
@@ -15,12 +15,8 @@ export const metadata: Metadata = {
 	description: "This is search",
 };
 
-const Search = async ({
-	searchParams,
-}: {
-	searchParams: { city?: string; cuisine?: string; price?: PRICE };
-}) => {
-	const restaurants = await getSearchResults(searchParams.city);
+const Search = async ({ searchParams }: { searchParams: SearchParams }) => {
+	const restaurants = await getRestaurantsByCity(searchParams);
 	const locations = await getLocations();
 	const cuisines = await getCuisines();
 

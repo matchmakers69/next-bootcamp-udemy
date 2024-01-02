@@ -42,3 +42,9 @@ export interface MenuItem {
 	price: string;
 	description: string;
 }
+
+export interface SearchParams {
+	city?: string;
+	cuisine?: string;
+	price?: PRICE;
+}
