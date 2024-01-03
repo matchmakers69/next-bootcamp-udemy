@@ -1,4 +1,4 @@
-import { type PRICE, type Cuisine, type Location } from "@prisma/client";
+import { type PRICE, type Cuisine, type Location, type Review } from "@prisma/client";
 
 export interface Restaurant {
 	id: number;
@@ -26,6 +26,7 @@ export interface RestaurantSubset {
 	location: Location;
 	price: PRICE;
 	slug: string;
+	reviews: Review[];
 }
 
 export interface RestaurantDetailsSubset {

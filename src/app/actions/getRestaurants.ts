@@ -12,6 +12,7 @@ export default async function getRestaurants(): Promise<RestaurantSubset[]> {
 				slug: true,
 				location: true,
 				price: true,
+				reviews: true,
 			},
 		});
 		return res;

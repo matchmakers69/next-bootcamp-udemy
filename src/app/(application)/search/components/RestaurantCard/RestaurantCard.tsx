@@ -1,7 +1,9 @@
-import { type Cuisine, type PRICE, type Location } from "@prisma/client";
+import { type Cuisine, type PRICE, type Location, type Review } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 import { Price } from "@/ui/components/Price";
+import { calculateReviewRatingAverage } from "@/utils/calculateReviewRatingAverage";
 
 interface Restaurant {
 	id: number;
@@ -11,6 +13,7 @@ interface Restaurant {
 	cuisine: Cuisine;
 	location: Location;
 	slug: string;
+	reviews: Review[];
 }
 
 interface RestaurantCardProps {
@@ -18,6 +21,19 @@ interface RestaurantCardProps {
 }
 
 const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+	const renderRatingText = useMemo(() => {
+		const rating = calculateReviewRatingAverage(restaurant.reviews);
+		switch (true) {
+			case rating > 4:
+				return "Awesome";
+			case rating <= 4 && rating > 3:
+				return "Good";
+			case rating <= 3 && rating > 0:
+				return "Average";
+			default:
+				return "No rates currently";
+		}
+	}, [restaurant.reviews]);
 	return (
 		<div className="ml-4 flex border-b pb-5">
 			<Image
@@ -32,7 +48,7 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 				<h2 className="text-3xl">{restaurant.name}</h2>
 				<div className="flex items-start">
 					<div className="mb-2 flex">*****</div>
-					<p className="ml-2 text-sm">Awesome</p>
+					<p className="ml-2 text-sm">{renderRatingText}</p>
 				</div>
 				<div className="mb-9">
 					<div className="text-reg flex font-light">

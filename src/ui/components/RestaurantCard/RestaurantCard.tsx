@@ -24,7 +24,13 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 					<h3 className="mb-2 text-2xl font-bold">{restaurant.name}</h3>
 					<div className="flex items-start">
 						<div className="mb-2 flex">*****</div>
-						<p className="ml-2">77 reviews</p>
+						<p className="ml-2">
+							{restaurant.reviews.length >= 1 ? (
+								`${restaurant.reviews.length} review${restaurant.reviews.length > 1 ? "s" : ""}`
+							) : (
+								<span>Sorry there are no reviews</span>
+							)}
+						</p>
 					</div>
 					<div className="text-reg flex font-light capitalize">
 						<p className=" mr-3">{restaurant.cuisine.name}</p>

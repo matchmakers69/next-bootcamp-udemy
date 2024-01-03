@@ -55,6 +55,7 @@ export default async function getRestaurantsByCity(searchParams: SearchParams) {
 			cuisine: true,
 			location: true,
 			slug: true,
+			reviews: true,
 		};
 
 		return await prisma.restaurant.findMany({
