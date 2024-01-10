@@ -25,10 +25,10 @@ const RestaurantDetails = async (props: { params: { slug: string } }) => {
 			<div className="w-[70%] rounded bg-white p-3 shadow">
 				<RestaurantNavbar slug={singleRestaurant.slug} />
 				<RestaurantTitle name={singleRestaurant.name} />
-				<RestaurantRating />
+				<RestaurantRating reviews={singleRestaurant.reviews} />
 				<RestaurantDescription description={singleRestaurant.description} />
 				<RestaurantImagesList images={singleRestaurant.images} />
-				<RestaurantReviews />
+				<RestaurantReviews reviews={singleRestaurant.reviews} />
 			</div>
 			<div className="text-reg relative w-[27%]">
 				<RestaurantReservationCard />

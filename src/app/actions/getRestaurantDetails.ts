@@ -3,7 +3,7 @@ import { prisma } from "@/lib/db";
 
 export default async function getRestaurantDetails(slug: string): Promise<RestaurantDetailsSubset> {
 	try {
-		const res = await prisma.restaurant.findFirst({
+		const singleRestaurant = await prisma.restaurant.findFirst({
 			where: { slug },
 			select: {
 				id: true,
@@ -11,12 +11,13 @@ export default async function getRestaurantDetails(slug: string): Promise<Restau
 				images: true,
 				description: true,
 				slug: true,
+				reviews: true,
 			},
 		});
-		if (!res) {
+		if (!singleRestaurant) {
 			throw new Error();
 		}
-		return res;
+		return singleRestaurant;
 	} catch (error) {
 		throw new Error("Cannot fetch restaurant details by slug");
 	}

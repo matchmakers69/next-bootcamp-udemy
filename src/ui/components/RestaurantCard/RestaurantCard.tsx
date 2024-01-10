@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Price } from "../Price";
+import { Stars } from "../Stars";
 import { type RestaurantSubset } from "@/api/services/interfaces";
 
 interface RestaurantCardProps {
@@ -23,7 +24,7 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 				<div className="p-1">
 					<h3 className="mb-2 text-2xl font-bold">{restaurant.name}</h3>
 					<div className="flex items-start">
-						<div className="mb-2 flex">*****</div>
+						<Stars reviews={restaurant.reviews} />
 						<p className="ml-2">
 							{restaurant.reviews.length >= 1 ? (
 								`${restaurant.reviews.length} review${restaurant.reviews.length > 1 ? "s" : ""}`

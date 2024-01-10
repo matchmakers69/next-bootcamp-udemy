@@ -35,6 +35,7 @@ export interface RestaurantDetailsSubset {
 	images: string[];
 	description: string;
 	slug: string;
+	reviews: Review[];
 }
 
 export interface MenuItem {

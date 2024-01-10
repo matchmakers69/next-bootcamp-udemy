@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { Price } from "@/ui/components/Price";
 import { calculateReviewRatingAverage } from "@/utils/calculateReviewRatingAverage";
+import { Stars } from "@/ui/components/Stars";
 
 interface Restaurant {
 	id: number;
@@ -47,7 +48,7 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
 			<div className="pl-5">
 				<h2 className="text-3xl">{restaurant.name}</h2>
 				<div className="flex items-start">
-					<div className="mb-2 flex">*****</div>
+					<Stars reviews={restaurant.reviews} />
 					<p className="ml-2 text-sm">{renderRatingText}</p>
 				</div>
 				<div className="mb-9">
