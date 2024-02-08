@@ -1,11 +1,12 @@
 "use client";
 
 import { useController } from "react-hook-form";
-import { Input } from "../../atoms/Input";
 import { useSearch } from "./hooks/useSearch";
+import { Input } from "@/ui/atoms/Input";
+import { Button } from "@/ui/atoms/Button";
 
 const SearchBar = () => {
-	const { control, submit } = useSearch();
+	const { control, submit, errors } = useSearch();
 	const { field: locationField } = useController({
 		name: "location",
 		control,
@@ -13,17 +14,16 @@ const SearchBar = () => {
 
 	return (
 		<div className="m-auto flex justify-center py-3 text-left text-lg">
-			<form className="flex items-center" noValidate onSubmit={submit}>
+			<form className="flex w-full max-w-[500px] items-center gap-4" noValidate onSubmit={submit}>
 				<Input
 					value={locationField.value ?? ""}
 					onChange={locationField.onChange}
 					type="text"
-					className="mr-3  w-[450px] rounded"
+					className="mr-3 w-full rounded"
 					placeholder="State, city or town"
+					error={errors.location}
 				/>
-				<button type="submit" className="rounded bg-red-600 px-9 py-2 text-white">
-					Let's go
-				</button>
+				<Button type="submit" className="rounded bg-red-600 py-2 text-white" label="Search location" />
 			</form>
 		</div>
 	);

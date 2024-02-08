@@ -1,21 +1,25 @@
 import { useRouter } from "next/navigation";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
-import { searchValidation } from "@/ui/components/SearchBar/validation";
-import { type TSearchValues } from "@/ui/components/SearchBar/types";
+import { type SearchFormValues, searchSchema } from "../validation";
 
 export const useSearch = () => {
 	const router = useRouter();
-	const { control, handleSubmit, reset } = useForm<TSearchValues>({
-		resolver: yupResolver(searchValidation),
+	const {
+		control,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<SearchFormValues>({
+		resolver: zodResolver(searchSchema),
 		mode: "onChange",
 		defaultValues: {
 			location: "",
 		},
 	});
 
-	const handleSearchSubmit: SubmitHandler<TSearchValues> = useCallback(
+	const handleSearchSubmit: SubmitHandler<SearchFormValues> = useCallback(
 		(data) => {
 			console.log(data);
 			router.push(`/search?city=${data.location}`);
@@ -26,5 +30,5 @@ export const useSearch = () => {
 
 	const submit = handleSubmit(handleSearchSubmit);
 
-	return { control, submit };
+	return { control, submit, errors };
 };

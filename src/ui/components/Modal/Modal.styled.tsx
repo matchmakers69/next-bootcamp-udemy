@@ -6,6 +6,9 @@ export const BootstrapDialogContent = styled(MUIDialog, {
 	slot: "MuiCustomModal",
 	skipSx: true,
 })((props) => ({
+	"& .MuiPaper-root": {
+		minWidth: 588,
+	},
 	"& .MuiDialogContent-root": {
 		padding: props.theme.spacing(2),
 	},
