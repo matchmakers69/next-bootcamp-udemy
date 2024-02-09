@@ -5,7 +5,7 @@ import { RestaurantCard } from "./components/RestaurantCard";
 import getRestaurantsByCity from "@/app/actions/getRestaurantsByCity";
 import getLocations from "@/app/actions/getLocations";
 import getCuisines from "@/app/actions/getCuisines";
-import { type SearchParams } from "@/api/services/interfaces";
+import { type SearchParams } from "@/api/services/interfaces/defs";
 
 export const metadata: Metadata = {
 	title: {

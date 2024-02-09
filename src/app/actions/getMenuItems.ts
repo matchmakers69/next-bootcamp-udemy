@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/db";
-import { type MenuItem } from "@/api/services/interfaces";
+import { type MenuItem } from "@/api/services/interfaces/defs";
 
 export default async function getMenuItems(slug: string): Promise<MenuItem[]> {
 	try {

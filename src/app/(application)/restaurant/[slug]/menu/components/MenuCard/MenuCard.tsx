@@ -1,4 +1,4 @@
-import { type MenuItem } from "@/api/services/interfaces";
+import { type MenuItem } from "@/api/services/interfaces/defs";
 
 interface MenuCardProps {
 	menuItem: MenuItem;

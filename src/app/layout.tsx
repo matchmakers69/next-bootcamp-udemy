@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Rubik } from "next/font/google";
 import "./globals.css";
+import SessionProvider from "./providers/SessionProvider";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -36,7 +37,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={`${poppins.variable} ${rubik.variable}`}>{children}</body>
+			<body className={`${poppins.variable} ${rubik.variable}`}>
+				<SessionProvider>{children}</SessionProvider>
+			</body>
 		</html>
 	);
 }

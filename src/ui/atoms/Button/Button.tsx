@@ -9,7 +9,7 @@ const Button = forwardRef(
 				ref={ref}
 				{...rest}
 				className={cn(
-					"min-h-[40px] min-w-[150px] rounded-md bg-blue-600 px-3 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+					"min-h-[40px] min-w-[150px] rounded-md bg-blue-600 px-2 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
 					className,
 				)}
 			>
