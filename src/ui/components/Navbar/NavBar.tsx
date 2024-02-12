@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import React, { useState } from "react";
 import { AuthModal } from "@/app/(auth)/login/components/AuthModal";
 import { Button } from "@/ui/atoms/Button";
@@ -9,7 +9,7 @@ const NavBar = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isSignIn, setIsSignIn] = useState(true);
 
-	const { data: session } = useSession();
+	const { data: session, status } = useSession();
 	const user = session?.user;
 
 	const handleToggleModal = () => {
@@ -25,6 +25,10 @@ const NavBar = () => {
 		setIsSignIn(false);
 		setIsModalOpen(true);
 	};
+
+	if (status === "loading") {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<nav className="flex justify-between bg-white p-2">
@@ -50,7 +54,7 @@ const NavBar = () => {
 							onClick={() =>
 								signOut({
 									redirect: true,
-									callbackUrl: `${window.location.origin}/login`,
+									callbackUrl: `${window.location.origin}`,
 								})
 							}
 							className="bg-red-500 text-white"
