@@ -953,7 +953,11 @@ async function main() {
 
 	await seedUsers();
 
-	Array.from({ length: 15 }).forEach(async (_, index) => {
+	function generateRandomRating() {
+		return Math.floor(Math.random() * 5) + 1;
+	}
+
+	Array.from({ length: 30 }).forEach(async (_, index) => {
 		const usersLength = users.length;
 		const restauransLength = restaurants.length;
 
@@ -970,7 +974,7 @@ async function main() {
 				first_name: user.first_name,
 				last_name: user.last_name,
 				text: reviewsText[index % reviewsText.length] ?? "good",
-				rating: 5,
+				rating: generateRandomRating(),
 				restaurant_id: restaurant.id,
 				user_id: user.id,
 			},
