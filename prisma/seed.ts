@@ -535,8 +535,7 @@ async function main() {
 
 		await prisma.review.create({
 			data: {
-				first_name: user.first_name,
-				last_name: user.last_name,
+				name: user.name,
 				text: reviewsText[index % reviewsText.length] ?? "good",
 				rating: generateRandomRating(),
 				restaurant_id: restaurant.id,

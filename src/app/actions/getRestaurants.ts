@@ -1,4 +1,4 @@
-import { type RestaurantSubset } from "@/api/services/interfaces/defs";
+import { type RestaurantSubset } from "@/apiClientServices/interfaces/defs";
 import { prisma } from "@/lib/db";
 
 export default async function getRestaurants(): Promise<RestaurantSubset[]> {

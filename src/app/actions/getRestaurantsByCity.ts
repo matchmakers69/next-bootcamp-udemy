@@ -1,6 +1,6 @@
 import { type PRICE } from "@prisma/client";
 import { prisma } from "@/lib/db";
-import { type SearchParams } from "@/api/services/interfaces/defs";
+import { type SearchParams } from "@/apiClientServices/interfaces/defs";
 
 interface WhereClause {
 	location?: {

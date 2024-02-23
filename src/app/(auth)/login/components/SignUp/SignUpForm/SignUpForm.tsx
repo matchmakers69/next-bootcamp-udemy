@@ -3,13 +3,12 @@ import { Button } from "@/ui/atoms/Button";
 import { Input } from "@/ui/atoms/Input";
 
 function SignUpForm() {
-	const { errors, register, submit } = useSignUp();
+	const { errors, register, submit, loading, isDirty, isSubmitting, isValid } = useSignUp();
 	return (
 		<div className="m-auto max-w-[420px] py-3 text-left text-lg">
 			<form noValidate onSubmit={submit}>
 				<div className="my-3 flex justify-between gap-3 text-sm">
-					<Input type="text" placeholder="First name" {...register("firstName")} error={errors.firstName} />
-					<Input type="text" placeholder="Last name" {...register("lastName")} error={errors.lastName} />
+					<Input type="text" placeholder="Full name" {...register("name")} error={errors.name} />
 				</div>
 				<div className="my-3 flex justify-between text-sm">
 					<Input
@@ -27,7 +26,20 @@ function SignUpForm() {
 				<div className="my-3 flex justify-between text-sm">
 					<Input type="password" placeholder="Password" {...register("password")} error={errors.password} />
 				</div>
-				<Button type="submit" className="rounded bg-red-600 px-9 py-2 text-white" label="Sign in" />
+				<div className="my-3 flex justify-between text-sm">
+					<Input
+						type="password"
+						placeholder="Confirm password"
+						{...register("confirmPassword")}
+						error={errors.confirmPassword}
+					/>
+				</div>
+				<Button
+					type="submit"
+					className="rounded bg-red-600 px-9 py-2 text-white"
+					label={loading ? "Loading" : "Sign in"}
+					disabled={!isDirty || !isValid || isSubmitting}
+				/>
 			</form>
 		</div>
 	);

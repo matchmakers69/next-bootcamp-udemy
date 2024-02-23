@@ -56,8 +56,7 @@ CREATE TABLE "Cuisine" (
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
-    "first_name" TEXT NOT NULL,
-    "last_name" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "city" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "email" TEXT,
@@ -69,8 +68,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Review" (
     "id" SERIAL NOT NULL,
-    "first_name" TEXT NOT NULL,
-    "last_name" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "text" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
     "restaurant_id" INTEGER NOT NULL,

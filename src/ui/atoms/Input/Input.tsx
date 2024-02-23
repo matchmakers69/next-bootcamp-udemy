@@ -1,6 +1,6 @@
 import { forwardRef, useId } from "react";
 import { type FormInputProps } from "./defs";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/clsx";
 
 const Input = forwardRef<HTMLInputElement, FormInputProps>(
 	({ className, type, label, error, ...props }, ref) => {

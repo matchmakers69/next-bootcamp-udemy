@@ -9,11 +9,14 @@ export const authOptions: NextAuthOptions = {
 	session: {
 		strategy: "jwt",
 	},
+	pages: {
+		signIn: "/", // If there was a specific page for login user should be redirected there
+	},
 	secret: process.env.NEXTAUTH_SECRET,
 	adapter: PrismaAdapter(prisma),
 	providers: [
 		CredentialsProvider({
-			name: "signin",
+			name: "Sign in",
 			credentials: {
 				email: {
 					label: "Email",

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Price } from "../Price";
 import { Stars } from "../Stars";
-import { type RestaurantSubset } from "@/api/services/interfaces/defs";
+import { type RestaurantSubset } from "@/apiClientServices/interfaces/defs";
 
 interface RestaurantCardProps {
 	restaurant: RestaurantSubset;

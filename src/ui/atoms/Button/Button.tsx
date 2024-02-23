@@ -1,6 +1,6 @@
 import { forwardRef, type ForwardedRef } from "react";
 import { type ButtonProps } from "./defs";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/clsx";
 
 const Button = forwardRef(
 	({ label, className, ...rest }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {

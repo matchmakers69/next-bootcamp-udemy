@@ -27,8 +27,7 @@ export const reviewsText = [
 export const users = [
 	{
 		id: "410544b2-4001-4271-9855-fec4b6a6442a",
-		first_name: "Laith",
-		last_name: "Harb",
+		name: "Laith Harb",
 		email: "laith@hotmail.com",
 		city: "ottawa",
 		password: "cdhnklewlcf",
@@ -38,8 +37,7 @@ export const users = [
 	},
 	{
 		id: "3958dc9e-712f-4377-85e9-fec4b6a6442a",
-		first_name: "Josh",
-		last_name: "Allen",
+		name: "Josh Allen",
 		email: "josh@hotmail.com",
 		city: "toronto",
 		password: "Wieslawa69",
@@ -49,8 +47,7 @@ export const users = [
 	},
 	{
 		id: "3958dc9e-737f-4377-85e9-fec4b6a6442a",
-		first_name: "LeBron",
-		last_name: "James",
+		name: "LeBron James",
 		email: "lebron@hotmail.com",
 		city: "niagara",
 		password: "dwecf",
@@ -60,8 +57,7 @@ export const users = [
 	},
 	{
 		id: "3958dc9e-787f-4377-85e9-fec4b6a6442a",
-		first_name: "Cassidy",
-		last_name: "Marksom",
+		name: "Cassidy Marksom",
 		email: "cassidy@hotmail.com",
 		city: "toronto",
 		password: "dwecf",
